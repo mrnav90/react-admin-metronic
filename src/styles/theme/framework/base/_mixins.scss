@@ -8,14 +8,14 @@
   	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
   	display: -ms-flexbox;      /* TWEENER - IE 10 */
   	display: -webkit-flex;     /* NEW - Chrome */
-  	display: flex; 
+  	display: flex;
 }
 
 @mixin flexbox-orient-hor() {
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
     -ms-box-orient: horizontal;
-     box-orient: horizontal;     
+     box-orient: horizontal;
 	-ms-flex-direction: row;
 }
 
@@ -27,11 +27,11 @@
 }
 
 @mixin flexbox-order($order) {
-	-webkit-box-ordinal-group: $order;  
-    -moz-box-ordinal-group: $order;      
-    -ms-flex-order: $order;             
-    -webkit-order: $order;               
-    order: $order;  
+	-webkit-box-ordinal-group: $order;
+    -moz-box-ordinal-group: $order;
+    -ms-flex-order: $order;
+    -webkit-order: $order;
+    order: $order;
 }
 
 @mixin flexbox-flex($flex) {
@@ -81,13 +81,13 @@
 	-moz-flex-direction: $dir;
 	flex-direction: $dir;
 	-webkit-flex-direction: $dir;
-} 
+}
 
 @mixin flexbox-justify-content($value) {
 	 -webkit-justify-content: $value;
         -moz-justify-content: $value;
          -ms-justify-content: $value;
-             justify-content: $value;	
+             justify-content: $value;
 }
 
 
@@ -95,12 +95,12 @@
      -webkit-align-items: $value;
         -moz-align-items: $value;
          -ms-align-items: $value;
-             align-items: $value;   
+             align-items: $value;
 }
 
 //== Clearfix
 @mixin clearfix() {
-	&:before, 
+	&:before,
 	&:after {
 		content: " "; // 1
 		display: table; // 2
@@ -141,7 +141,7 @@
     vertical-align: middle;
 }
 
-    
+
 //== Clear Whitespace
 @mixin no-whitespace() {
 	white-space: -moz-pre-wrap; /* Firefox */
@@ -162,7 +162,7 @@
 
 	// ie8-11 versions hack
     @include hack-ie8-11 {
-    	background: transparent;    	
+    	background: transparent;
     }
 }
 
@@ -265,15 +265,15 @@
     }
 }
 
-//== Gradient background 
+//== Gradient background
 @mixin gradient-bg($alternative-bg, $degree, $from, $to) {
     background: $alternative-bg; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient( $degree, $from, $to ); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient( $degree, $from, $to ); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient( $degree, $from, $to ); /* For Firefox 3.6 to 15 */
-    background: linear-gradient( $degree, $from, $to ); /* Standard syntax */    
+    background: linear-gradient( $degree, $from, $to ); /* Standard syntax */
 }
-    
+
 //== Reset input
 @mixin reset-input() {
 	border: 0;
@@ -285,20 +285,20 @@
 //== Fixed positioned element smooth
 @mixin fix-fixed-position-lags() {
 	// webkit hack for smooth font view on fixed positioned elements
-	-webkit-backface-visibility:hidden; 
-	backface-visibility:hidden; 
+	-webkit-backface-visibility:hidden;
+	backface-visibility:hidden;
 }
 
 //== Fixed positioned element smooth
 @mixin fix-animation-lags() {
-    @include transform(translateZ(0)); 
+    @include transform(translateZ(0));
     -webkit-transform-style: preserve-3d;
 }
 
 @mixin fix-webkit-animation-font() {
    -webkit-transform-style: preserve-3d;
    -webkit-transform: translateZ(0px);
-   -webkit-font-smoothing: subpixel-antialiased; 
+   -webkit-font-smoothing: subpixel-antialiased;
    -webkit-backface-visibility:hidden;
 }
 
@@ -312,8 +312,8 @@
 //== Attribute
 @mixin attr($attr, $value) {
     @if  $value != null  {
-        #{$attr}: #{$value}; 
-    } 
+        #{$attr}: #{$value};
+    }
 }
 
 //== Rounded mode
@@ -324,7 +324,7 @@
 }
 
 //== Transform
-@mixin transform($degree) {  
+@mixin transform($degree) {
 	-webkit-transform: #{$degree};
 	-moz-transform:#{ $degree};
 	-ms-transform: #{$degree};
@@ -436,7 +436,7 @@ xl: 1200px
   	@media (max-width: #{map-get($m--layout-breakpoints, md)}) {
     	@content;
   	}
-} 
+}
 
 //== IE8-11 versions hack
 @mixin hack-ie8-11 {
@@ -457,32 +457,32 @@ xl: 1200px
     @if $m--default-skin == $skin {
         .#{$class} {
             @content;
-        }        
+        }
     } @else {
         .#{$class}.#{$class}--skin-#{$skin} {
             @content;
         }
     }
-    //.m--skin-#{$skin} .#{$class}:not(.#{$class}--skin-light):not(.#{$class}--skin-dark):not(.#{$class}--state), 
+    //.m--skin-#{$skin} .#{$class}:not(.#{$class}--skin-light):not(.#{$class}--skin-dark):not(.#{$class}--state),
 }
 
 //== Icon Sizing
 // sass list:  (lineawesome: 1.1rem, fontawesome: 1.2rem, metronic: 1.1rem)
 @mixin icons-size($config) {
     // lineawesome
-    [class^="la-"], 
+    [class^="la-"],
     [class*=" la-"] {
         font-size: array-get($config, lineawesome);
-    } 
+    }
 
-    // fontaweseom icons 
-    [class^="fa-"], 
+    // fontaweseom icons
+    [class^="fa-"],
     [class*=" fa-"] {
         font-size: array-get($config, fontawesome);
-    } 
+    }
 
-    // metronic icons 
-    [class^="flaticon-"], 
+    // metronic icons
+    [class^="flaticon-"],
     [class*=" flaticon-"] {
         font-size: array-get($config, metronic);
     }
@@ -492,19 +492,19 @@ xl: 1200px
 // sass list:  (lineawesome: 1.1rem, fontawesome: 1.2rem, metronic: 1.1rem)
 @mixin icons-attr($attr, $config) {
     // lineawesome
-    [class^="la-"], 
+    [class^="la-"],
     [class*=" la-"] {
         #{$attr}: array-get($config, lineawesome);
-    } 
+    }
 
-    // fontaweseom icons 
-    [class^="fa-"], 
+    // fontaweseom icons
+    [class^="fa-"],
     [class*=" fa-"] {
         #{$attr}: array-get($config, fontawesome);
-    } 
+    }
 
-    // metronic icons 
-    [class^="flaticon-"], 
+    // metronic icons
+    [class^="flaticon-"],
     [class*=" flaticon-"] {
         #{$attr}: array-get($config, metronic);
     }
@@ -512,16 +512,16 @@ xl: 1200px
 
 @mixin icons-style {
     // lineawesome
-    [class^="la-"], 
+    [class^="la-"],
     [class*=" la-"],
-     // fontaweseom icons 
-    [class^="fa-"], 
+     // fontaweseom icons
+    [class^="fa-"],
     [class*=" fa-"],
-    // metronic icons 
-    [class^="flaticon-"], 
+    // metronic icons
+    [class^="flaticon-"],
     [class*=" flaticon-"] {
         @content;
-    } 
+    }
 }
 
 //== Metronic icon
@@ -569,7 +569,7 @@ xl: 1200px
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    
+
     &:before {
         content: "#{$icon}";
     }

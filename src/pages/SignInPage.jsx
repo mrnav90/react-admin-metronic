@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SignInForm} from 'components';
+import {SignInForm, GuestLayout} from 'components';
 
 export default class SignInPage extends Component {
   constructor(props, context) {
@@ -8,7 +8,9 @@ export default class SignInPage extends Component {
 
   render() {
     return (
-      <SignInForm/>
+      <GuestLayout>
+        <SignInForm/>
+      </GuestLayout>
     );
   }
 }

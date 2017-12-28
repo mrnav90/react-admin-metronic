@@ -3,13 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
         <title>React Admin</title>
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png" />
         <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png" />
@@ -18,7 +17,15 @@
     </head>
 <body>
     <div id="app"></div>
-    <script src="https://use.fontawesome.com/2c77b36b26.js"></script>
     <script type="text/javascript" src="/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      });
+    </script>
 </body>
 </html>

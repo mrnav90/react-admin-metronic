@@ -17,6 +17,7 @@
   "homepage": "https://github.com/mrnav90/react-admin",
   "dependencies": {
     "axios": "^0.16.2",
+    "bootstrap": "v4.0.0-beta",
     "classnames": "^2.2.5",
     "formsy-react": "^1.1.1",
     "formsy-semantic-ui-react": "^0.3.1",

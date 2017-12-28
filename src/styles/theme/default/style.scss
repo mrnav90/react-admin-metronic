@@ -7,21 +7,21 @@
 ////////////////////////////////////////////////////////////////
 //== 1: Framework Config
 @import "framework-config";  // demo level framework config override
-@import "../../framework/config"; // metronic framework config
-@import "../../framework/vendors/bootstrap/variables"; // metronic bootstrap override config
+@import "../framework/config"; // metronic framework config
+@import "../framework/vendors/bootstrap/variables"; // metronic bootstrap override config
 
 //== 2: Framework Components Config
-@import "../../framework/components/base/config";
-@import "../../framework/components/general/config";
+@import "../framework/components/base/config";
+@import "../framework/components/general/config";
 
 //== 3: Bootstrap Include
-@import "../../framework/vendors/bootstrap/bootstrap.scss";
+@import "../framework/vendors/bootstrap/bootstrap.scss";
 
 //== 4: Framework Components
-@import "../../framework/include";
+@import "../framework/include";
 
 //== 5: Snippets
-@import "../../snippets/include";
+@import "../snippets/include";
 ////////////////////////////////////////////////////////////////
 ///////////// DO NOT MODIFY ABOVE INCLUDE ORDER ////////////////
 ////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@
 @import "header/_config";
 @import "aside/_config";
 @import "menu-header/_config";
-@import "menu-aside/_config";   
+@import "menu-aside/_config";
 @import "footer/_config";
 
 //== 7: Demo Layout
