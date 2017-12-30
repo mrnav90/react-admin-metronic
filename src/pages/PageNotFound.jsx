@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 export default class PageNotFound extends Component {
   constructor(props, context) {
@@ -8,12 +7,15 @@ export default class PageNotFound extends Component {
 
   render() {
     return (
-      <div className="page-not-found">
-        <div className="ui middle center aligned grid">
-          <div className="column">
-            <h1>404</h1>
-            <p>oops.. page not found</p>
-            <Link to="/">Comback Sign In</Link>
+      <div className="page-404 m-grid m-grid--hor m-grid--root m-page">
+        <div className="m-grid__item m-grid__item--fluid m-grid m-error-1">
+          <div className="m-error_container">
+            <span className="m-error_number">
+              <h1>404</h1>
+            </span>
+            <p className="m-error_desc">
+              OOPS! Something went wrong here
+            </p>
           </div>
         </div>
       </div>
