@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {RestorePasswordForm, GuestLayout} from 'components';
+import {GuestLayout} from 'components/Layout';
+import {RestorePasswordForm} from 'components/RestorePasswordForm';
 
 export default class RestorePasswordPage extends Component {
   constructor(props, context) {

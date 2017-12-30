@@ -1,10 +1,11 @@
 import MasterLayout from './Master/MasterLayout';
 import GuestLayout from './Master/GuestLayout';
 import DashboardLayout from './Master/DashboardLayout';
-import './layout.scss';
+import {Header} from './Master/Header';
 
 export {
   MasterLayout,
   GuestLayout,
-  DashboardLayout
+  DashboardLayout,
+  Header
 };

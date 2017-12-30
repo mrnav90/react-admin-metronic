@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {SignInForm, GuestLayout} from 'components';
+import {GuestLayout} from 'components/Layout';
+import {SignInForm} from 'components/SignInForm';
 
 export default class SignInPage extends Component {
   constructor(props, context) {

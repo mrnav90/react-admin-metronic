@@ -1,5 +1,5 @@
 import {Application, AppRoot} from './Application';
-import {MasterLayout, GuestLayout} from './Layout';
+import {MasterLayout, GuestLayout, DashboardLayout, Header} from './Layout';
 import {SignInForm} from './SignInForm';
 import {SignUpForm} from './SignUpForm';
 import {RequestPasswordForm} from './RequestPasswordForm';
@@ -9,6 +9,8 @@ export {
   Application,
   AppRoot,
   MasterLayout,
+  DashboardLayout,
+  Header,
   SignInForm,
   SignUpForm,
   GuestLayout,

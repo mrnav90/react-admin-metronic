@@ -7,13 +7,15 @@ import {
   SignUpPage,
   RequestPasswordPage,
   RestorePasswordPage,
-  PageNotFound
+  PageNotFound,
+  DashboardPage
 } from 'pages';
 
 const routes = [
   {
     component: Application,
     routes: [
+      {path: '/dashboard', exact: true, component: DashboardPage},
       {path: '/', exact: true, component: SignInPage},
       {path: '/sign-up', exact: true, component: SignUpPage},
       {path: '/request-password', exact: true, component: RequestPasswordPage},

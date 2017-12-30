@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {MasterLayout} from 'components/Layout';
 
 export default class PageNotFound extends Component {
   constructor(props, context) {
@@ -7,7 +8,7 @@ export default class PageNotFound extends Component {
 
   render() {
     return (
-      <div className="page-404 m-grid m-grid--hor m-grid--root m-page">
+      <MasterLayout>
         <div className="m-grid__item m-grid__item--fluid m-grid m-error-1">
           <div className="m-error_container">
             <span className="m-error_number">
@@ -18,7 +19,7 @@ export default class PageNotFound extends Component {
             </p>
           </div>
         </div>
-      </div>
+      </MasterLayout>
     );
   }
 }

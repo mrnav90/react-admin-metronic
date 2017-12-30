@@ -1,4 +1,4 @@
-@import "theme/default/style.scss";
+@import "reset";
 @import "colors";
 @import "variables";
 @import "extends";
@@ -6,3 +6,4 @@
 @import 'animation';
 @import "globals";
 @import "responsive";
+@import "theme/main.scss";

@@ -1,3 +1,5 @@
+import 'font-awesome/scss/font-awesome.scss';
+import 'socicon/css/socicon.css';
 import 'styles/main.scss';
 
 import React from 'react';

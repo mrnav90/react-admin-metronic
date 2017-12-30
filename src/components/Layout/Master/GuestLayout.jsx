@@ -15,11 +15,9 @@ export default class GuestLayout extends Component {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {}));
     return (
       <MasterLayout>
-        <div className="m-grid m-grid--hor m-grid--root m-page">
-          <div className="guest-page m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--singin m-login--2 m-login-2--skin-2">
-            <div className="m-grid__item m-grid__item--fluid m-login__wrapper">
-              {childrenWithProps}
-            </div>
+        <div className="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--singin m-login--2 m-login-2--skin-2">
+          <div className="m-grid__item m-grid__item--fluid m-login__wrapper">
+            {childrenWithProps}
           </div>
         </div>
       </MasterLayout>

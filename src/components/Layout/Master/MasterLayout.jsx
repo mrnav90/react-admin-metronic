@@ -14,8 +14,8 @@ export default class MasterLayout extends Component {
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {}));
     return (
-      <div className="wrapper-container">
-        <main className="main-container">{childrenWithProps}</main>
+      <div className="master-layout m-grid m-grid--hor m-grid--root m-page">
+        {childrenWithProps}
         <ReduxToastr
           timeOut={4000}
           newestOnTop={true}

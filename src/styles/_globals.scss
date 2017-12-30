@@ -1,17 +1,11 @@
-#app,
-.wrapper-container {
-  width: 100%;
-  height: 100%;
+.master-layout {
+  height: 100vh;
 }
 
-.guest-page {
+.m-login-2--skin-2 {
   background-image: url(#{$assets-img-path}background-guest.jpg);
 }
 
-.page-404 {
-  height: 100%;
-
-  .m-error-1 {
-    background-image: url(#{$assets-img-path}background-error.jpg);
-  }
+.m-error-1 {
+  background-image: url(#{$assets-img-path}background-error.jpg);
 }

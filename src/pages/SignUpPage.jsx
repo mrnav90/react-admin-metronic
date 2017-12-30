@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {SignUpForm, GuestLayout} from 'components';
+import {GuestLayout} from 'components/Layout';
+import {SignUpForm} from 'components/SignUpForm';
 
 export default class SignUpPage extends Component {
   constructor(props, context) {
