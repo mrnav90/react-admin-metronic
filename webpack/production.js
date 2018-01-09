@@ -61,6 +61,12 @@ const webpackConfig = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      'Popper': 'popper.js'
+    }),
     new webpack.NamedModulesPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
