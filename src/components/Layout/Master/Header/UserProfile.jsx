@@ -50,39 +50,6 @@ export default class UserProfile extends Component {
                     </span>
                   </a>
                 </li>
-                <li className="m-nav__item">
-                  <a href="../../../header/profile.html" className="m-nav__link">
-                    <i className="m-nav__link-icon flaticon-share"></i>
-                    <span className="m-nav__link-text">
-                      Activity
-                    </span>
-                  </a>
-                </li>
-                <li className="m-nav__item">
-                  <a href="../../../header/profile.html" className="m-nav__link">
-                    <i className="m-nav__link-icon flaticon-chat-1"></i>
-                    <span className="m-nav__link-text">
-                      Messages
-                    </span>
-                  </a>
-                </li>
-                <li className="m-nav__separator m-nav__separator--fit"></li>
-                <li className="m-nav__item">
-                  <a href="../../../header/profile.html" className="m-nav__link">
-                    <i className="m-nav__link-icon flaticon-info"></i>
-                    <span className="m-nav__link-text">
-                      FAQ
-                    </span>
-                  </a>
-                </li>
-                <li className="m-nav__item">
-                  <a href="../../../header/profile.html" className="m-nav__link">
-                    <i className="m-nav__link-icon flaticon-lifebuoy"></i>
-                    <span className="m-nav__link-text">
-                      Support
-                    </span>
-                  </a>
-                </li>
                 <li className="m-nav__separator m-nav__separator--fit"></li>
                 <li className="m-nav__item">
                   <a href="../../../snippets/pages/user/login-1.html" className="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">

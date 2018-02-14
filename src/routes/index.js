@@ -6,7 +6,7 @@ import {
   SignInPage,
   SignUpPage,
   RequestPasswordPage,
-  RestorePasswordPage,
+  ResetPasswordPage,
   PageNotFound,
   DashboardPage
 } from 'pages';
@@ -19,7 +19,7 @@ const routes = [
       {path: '/', exact: true, component: SignInPage},
       {path: '/sign-up', exact: true, component: SignUpPage},
       {path: '/request-password', exact: true, component: RequestPasswordPage},
-      {path: '/restore-password', exact: true, component: RestorePasswordPage},
+      {path: '/reset-password', exact: true, component: ResetPasswordPage},
       {path: '*', exact: true, component: PageNotFound}
     ]
   }

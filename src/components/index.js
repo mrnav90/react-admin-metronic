@@ -3,7 +3,7 @@ import {MasterLayout, GuestLayout, DashboardLayout, Header} from './Layout';
 import {SignInForm} from './SignInForm';
 import {SignUpForm} from './SignUpForm';
 import {RequestPasswordForm} from './RequestPasswordForm';
-import {RestorePasswordForm} from './RestorePasswordForm';
+import {ResetPasswordForm} from './ResetPasswordForm';
 
 export {
   Application,
@@ -15,5 +15,5 @@ export {
   SignUpForm,
   GuestLayout,
   RequestPasswordForm,
-  RestorePasswordForm
+  ResetPasswordForm
 };

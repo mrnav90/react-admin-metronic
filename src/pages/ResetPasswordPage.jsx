@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {GuestLayout} from 'components/Layout';
-import {RestorePasswordForm} from 'components/RestorePasswordForm';
+import {ResetPasswordForm} from 'components/ResetPasswordForm';
 
-export default class RestorePasswordPage extends Component {
+export default class ResetPasswordPage extends Component {
   constructor(props, context) {
     super(props, context);
   }
@@ -10,7 +10,7 @@ export default class RestorePasswordPage extends Component {
   render() {
     return (
       <GuestLayout>
-        <RestorePasswordForm/>
+        <ResetPasswordForm/>
       </GuestLayout>
     );
   }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class RestorePasswordForm extends Component {
+export default class ResetPasswordForm extends Component {
   constructor(props, context) {
     super(props, context);
   }
