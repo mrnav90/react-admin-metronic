@@ -1,5 +1,3 @@
 import RequestPasswordForm from './RequestPasswordForm';
 
-export {
-  RequestPasswordForm
-};
+export default RequestPasswordForm;

@@ -1,5 +1,3 @@
 import SignInForm from './SignInForm';
 
-export {
-  SignInForm
-};
+export default SignInForm;

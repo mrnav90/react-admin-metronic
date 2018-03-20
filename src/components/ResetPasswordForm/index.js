@@ -1,5 +1,3 @@
 import ResetPasswordForm from './ResetPasswordForm';
 
-export {
-  ResetPasswordForm
-};
+export default ResetPasswordForm;

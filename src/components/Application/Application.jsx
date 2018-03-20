@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withRouter} from 'react-router';
-import {connect} from 'react-redux';
 import AppRoutes from './AppRoutes';
 
-class Application extends Component {
+export default class Application extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
+  static propTypes = {
+    route: PropTypes.object
+  };
+
   constructor(props, context) {
     super(props, context);
   }
@@ -15,13 +21,3 @@ class Application extends Component {
     );
   }
 }
-
-Application.contextTypes = {
-  router: PropTypes.object
-};
-
-Application.propTypes = {
-  route: PropTypes.object
-};
-
-export default connect()(withRouter(Application));

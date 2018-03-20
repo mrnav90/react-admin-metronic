@@ -4,6 +4,7 @@ import CompressionPlugin from 'compression-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import dotenv from 'dotenv';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 dotenv.config();
 
@@ -77,21 +78,17 @@ const webpackConfig = {
       'APP_URL': JSON.stringify(process.env.APP_URL)
     }),
     new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true
-      },
-      output: {
+    new UglifyJsPlugin({
+      sourceMap: false,
+      test: /\.js($|\?)/i,
+      uglifyOptions: {
+        mangle: false,
+        compress: {
+          dead_code: false,
+          conditionals: false,
+          unused: false,
+          side_effects: false
+        },
         comments: false
       }
     }),

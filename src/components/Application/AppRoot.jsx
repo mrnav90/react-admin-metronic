@@ -1,21 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import AppRoutes from './AppRoutes';
 
-const AppRoot = ({store, routes}) => (
-  <Provider store={store}>
-    <Router>
-      <AppRoutes routes={routes} />
-    </Router>
-  </Provider>
-);
+export default class AppRoot extends Component {
+  static propTypes = {
+    store: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+    routes: PropTypes.array.isRequired
+  };
 
-AppRoot.propTypes = {
-  store: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  routes: PropTypes.array.isRequired
-};
+  constructor(props, context) {
+    super(props, context);
+  }
 
-export default AppRoot;
+  render() {
+    return (
+      <Provider store={this.props.store}>
+        <Router>
+          <AppRoutes routes={this.props.routes} />
+        </Router>
+      </Provider>
+    );
+  }
+}
