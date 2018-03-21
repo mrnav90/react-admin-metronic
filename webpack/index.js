@@ -17,6 +17,7 @@ const webpackConfig = {
       components: path.resolve(__dirname, '../src/components'),
       constants: path.resolve(__dirname, '../src/constants'),
       reducers: path.resolve(__dirname, '../src/reducers'),
+      store: path.resolve(__dirname, '../src/store'),
       api: path.resolve(__dirname, '../src/api'),
       styles: path.resolve(__dirname, '../src/styles'),
       routes: path.resolve(__dirname, '../src/routes'),

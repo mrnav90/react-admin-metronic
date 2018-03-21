@@ -2,20 +2,16 @@ import React from 'react';
 import {PropTypes} from 'prop-types';
 
 export default class ShowIf extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
-  static proptTypes = {
+  static propTypes = {
     condition: PropTypes.bool.isRequired,
     children: PropTypes.node
   };
 
+  constructor(props, context) {
+    super(props, context);
+  }
+
   render() {
-    if (this.props.condition) {
-      return this.props.children;
-    } else {
-      return null;
-    }
+    return this.props.condition ? this.props.children : null;
   }
 }

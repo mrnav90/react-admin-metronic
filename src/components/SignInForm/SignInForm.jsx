@@ -1,8 +1,41 @@
 import React, {Component} from 'react';
+import Form from 'formsy-react';
+import {Link} from 'react-router-dom';
+import {Input, Checkbox} from 'components/FormUI';
 
 export default class SignInForm extends Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      isSubmit: false,
+      isValid: true,
+      errors: []
+    };
+    this.onValid = this.onValid.bind(this);
+    this.onInvalid = this.onInvalid.bind(this);
+    this.onValidSubmit = this.onValidSubmit.bind(this);
+  }
+
+  onValid() {
+    this.setState({isValid: true});
+  }
+
+  onInvalid() {
+    this.setState({isValid: false});
+  }
+
+  onValidSubmit(data) {
+    this.setState({
+      errors: [
+        {
+          email: [
+            'Email invalid',
+            'Email is require'
+          ]
+        }
+      ]
+    });
+    console.log(data);
   }
 
   render() {
@@ -11,42 +44,45 @@ export default class SignInForm extends Component {
         <div className="m-login__head">
           <h3 className="m-login__title">Sign In</h3>
         </div>
-        <form className="m-login__form m-form" action="">
-          <div className="form-group m-form__group">
-            <input className="form-control m-input" type="text" placeholder="Email" name="email" autoComplete="off"/>
-          </div>
-          <div className="form-group m-form__group">
-            <input className="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password"/>
-          </div>
+        <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit}>
+          <Input
+            className="form-control m-input"
+            type="text"
+            name="email"
+            placeholder="Email"
+            validations="isEmail"
+            errors={this.state.errors}
+            validationErrors={{isEmail: 'Email not valid'}}
+            required
+          />
+          <Input
+            className="form-control m-input m-login__form-input--last"
+            type="password"
+            name="password"
+            placeholder="Password"
+            validations="minLength:6"
+            errors={this.state.errors}
+            validationErrors={{minLength: 'Password too short'}}
+            required
+          />
           <div className="row m-login__form-sub">
             <div className="col m--align-left m-login__form-left">
-              <label className="m-checkbox  m-checkbox--focus">
-                <input type="checkbox" name="remember"/>
-                Remember me
-                <span></span>
-              </label>
+              <Checkbox
+                name="remember"
+                className="m-checkbox--focus"
+                title="Remember me"
+              />
             </div>
             <div className="col m--align-right m-login__form-right">
-              <a href="javascript:;" className="m-link">
-                Forget Password ?
-              </a>
+              <Link to="/request-password" className="m-link">Forget Password ?</Link>
             </div>
           </div>
           <div className="m-login__form-action">
-            <button className="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
+            <button type="submit" disabled={!this.state.isValid} className="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
               Sign In
             </button>
           </div>
-        </form>
-        <div className="m-login__account">
-          <span className="m-login__account-msg">
-            Don't have an account yet ?
-          </span>
-          &nbsp;&nbsp;
-          <a href="javascript:;" className="m-link m-link--light m-login__account-link">
-            Sign Up
-          </a>
-        </div>
+        </Form>
       </div>
     );
   }
