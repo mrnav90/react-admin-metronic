@@ -1,4 +1,5 @@
 import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import 'theme/main.scss';
 import 'styles/main.scss';
 

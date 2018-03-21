@@ -14,8 +14,9 @@ class Input extends Component {
     setValue: PropTypes.func,
     getErrorMessage: PropTypes.func,
     getValue: PropTypes.func,
+    onChange: PropTypes.func,
     showError: PropTypes.func,
-    errors: PropTypes.any
+    errors: PropTypes.object
   };
 
   static defaultProps = {
@@ -23,7 +24,7 @@ class Input extends Component {
     placeholder: '',
     name: '',
     className: '',
-    errors: [],
+    errors: {},
     disabled: false
   }
 
@@ -36,21 +37,22 @@ class Input extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.errors && nextProps.errors.length > 0) {
+    if (nextProps.errors) {
       const errors = [];
-      nextProps.errors.map((value) => {
-        if (value[this.props.name]) {
-          value[this.props.name].map((error) => {
+      for (const key in nextProps.errors) {
+        if (this.props.name === key) {
+          nextProps.errors[key].map(error => {
             errors.push(error);
           });
         }
-      });
+      }
       this.setState({errors});
     }
   }
 
   onChange(e) {
     this.props.setValue(e.target.value);
+    this.props.onChange();
   }
 
   render() {
@@ -70,7 +72,7 @@ class Input extends Component {
           {
             this.state.errors.map((error, idx) => {
               return (
-                <span key={idx} className="form-control-feedback block">{error}</span>
+                <span key={idx} className="form-control-feedback d-block">{error}</span>
               );
             })
           }

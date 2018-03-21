@@ -1,6 +1,6 @@
 import {I18n} from 'react-i18nify';
 import {ACTION_TYPES, DEFAULT_LANGUAGE, I18N_DATA} from 'constants';
-import {getLanguage} from 'utils';
+import {setLanguage, getLanguage} from 'utils';
 
 export function translations() {
   return dispatch => {
@@ -29,5 +29,6 @@ export function changeLanguage(locale) {
       locale: locale
     });
     I18n.forceComponentsUpdate();
+    setLanguage(locale);
   };
 }
