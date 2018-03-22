@@ -8,11 +8,13 @@ import {translate} from 'utils';
 import {connect} from 'react-redux';
 import {changeLanguage} from 'actions';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router';
 
 @connect(state => ({
   language: state.i18n.locale
 }))
 
+@withRouter
 export default class SignInForm extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
@@ -23,14 +25,12 @@ export default class SignInForm extends Component {
     super(props, context);
     this.state = {
       isSubmit: false,
-      isValid: true,
-      errors: {}
+      isValid: true
     };
     this.onValid = this.onValid.bind(this);
     this.onInvalid = this.onInvalid.bind(this);
     this.onValidSubmit = this.onValidSubmit.bind(this);
     this.changeLanguage = this.changeLanguage.bind(this);
-    this.onChange = this.onChange.bind(this);
   }
 
   onValid() {
@@ -39,12 +39,6 @@ export default class SignInForm extends Component {
 
   onInvalid() {
     this.setState({isValid: false});
-  }
-
-  onChange() {
-    if (Object.keys(this.state.errors).length > 0) {
-      this.setState({errors: {}});
-    }
   }
 
   changeLanguage() {
@@ -58,7 +52,7 @@ export default class SignInForm extends Component {
       this.setState({isSubmit: false});
       toastr.success(translate('authenticated'), response.message);
     }).catch(error => {
-      this.setState({isSubmit: false, errors: error.errors});
+      this.setState({isSubmit: false});
       toastr.error(translate('error'), error.message);
     });
   }
@@ -74,21 +68,17 @@ export default class SignInForm extends Component {
             className="form-control m-input"
             type="text"
             name="email"
-            onChange={this.onChange}
             placeholder={translate('email')}
             validations="isEmail"
             validationErrors={{isEmail: translate('email_valid')}}
-            errors={this.state.errors}
             required
           />
           <Input
             className="form-control m-input m-login__form-input--last"
             type="password"
             name="password"
-            onChange={this.onChange}
             placeholder={translate('password')}
             validations="minLength:6"
-            errors={this.state.errors}
             validationErrors={{minLength: translate('password_short')}}
             required
           />

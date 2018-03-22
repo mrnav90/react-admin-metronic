@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {ShowIf} from 'components/Utils';
 
-class Input extends Component {
+@withFormsy
+export default class Input extends Component {
   static propTypes = {
     type: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
@@ -52,7 +53,9 @@ class Input extends Component {
 
   onChange(e) {
     this.props.setValue(e.target.value);
-    this.props.onChange();
+    if (this.props.onChange) {
+      this.props.onChange();
+    }
   }
 
   render() {
@@ -82,5 +85,3 @@ class Input extends Component {
     );
   }
 }
-
-export default withFormsy(Input);
