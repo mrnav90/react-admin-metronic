@@ -6,19 +6,21 @@ import {Auth} from 'api';
 import {toastr} from 'react-redux-toastr';
 import {translate} from 'utils';
 import {connect} from 'react-redux';
-import {changeLanguage} from 'actions';
+import {changeLanguage, loginSuccess} from 'actions';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router';
 
 @connect(state => ({
-  language: state.i18n.locale
+  language: state.i18n.locale,
+  auth: state.auth
 }))
 
 @withRouter
 export default class SignInForm extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
-    language: PropTypes.string
+    language: PropTypes.string,
+    auth: PropTypes.object
   }
 
   constructor(props, context) {
@@ -50,6 +52,7 @@ export default class SignInForm extends Component {
     this.setState({isSubmit: true});
     Auth.actions.login.request({}, {data}).then(response => {
       this.setState({isSubmit: false});
+      this.props.dispatch(loginSuccess(response.data));
       toastr.success(translate('authenticated'), response.message);
     }).catch(error => {
       this.setState({isSubmit: false});

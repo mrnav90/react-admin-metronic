@@ -5,5 +5,10 @@ export {
 } from './translation';
 
 export {
-  loginSuccess
+  loginSuccess,
+  logout
 } from './auth';
+
+export {
+  getUserInfo
+} from './user';
