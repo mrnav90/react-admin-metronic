@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {MasterLayout} from 'components';
+import {guestZone} from 'components/HOC';
 
+@guestZone
 export default class GuestLayout extends Component {
   constructor(props) {
     super(props);
