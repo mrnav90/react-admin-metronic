@@ -19,7 +19,7 @@ const routes = [
       {path: '/', exact: true, component: SignInPage},
       {path: '/sign-up', exact: true, component: SignUpPage},
       {path: '/request-password', exact: true, component: RequestPasswordPage},
-      {path: '/reset-password', exact: true, component: ResetPasswordPage},
+      {path: '/reset-password/:token', exact: true, component: ResetPasswordPage},
       {path: '*', exact: true, component: PageNotFound}
     ]
   }
