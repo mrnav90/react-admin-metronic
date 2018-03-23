@@ -8,19 +8,15 @@ import {translate} from 'utils';
 import {connect} from 'react-redux';
 import {changeLanguage, loginSuccess} from 'actions';
 import PropTypes from 'prop-types';
-import {withRouter} from 'react-router';
 
 @connect(state => ({
-  language: state.i18n.locale,
-  auth: state.auth
+  language: state.i18n.locale
 }))
 
-@withRouter
 export default class SignInForm extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
-    language: PropTypes.string,
-    auth: PropTypes.object
+    language: PropTypes.string
   }
 
   constructor(props, context) {

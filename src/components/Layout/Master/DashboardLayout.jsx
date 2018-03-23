@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {MasterLayout, Header} from 'components/Layout';
+import {memberZone} from 'components/HOC';
 
+@memberZone
 export default class DashboardLayout extends Component {
   constructor(props) {
     super(props);

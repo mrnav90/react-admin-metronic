@@ -10,7 +10,7 @@ import {isAuthenticated} from 'utils';
 
 @withRouter
 export default function(WrappedComponent) {
-  return class MemberZone extends Component {
+  return class GuestZone extends Component {
     static propTypes = {
       dispatch: PropTypes.func,
       auth: PropTypes.object,
@@ -22,19 +22,19 @@ export default function(WrappedComponent) {
     }
 
     componentDidMount() {
-      if (!isAuthenticated()) {
-        this.props.history.push('/');
+      if (isAuthenticated()) {
+        this.props.history.push('/dashboard');
       }
     }
 
     componentWillReceiveProps(nextProps) {
-      if (!nextProps.auth || !nextProps.auth.isAuthenticated) {
-        this.props.history.push('/');
+      if (nextProps.auth && nextProps.auth.isAuthenticated) {
+        this.props.history.push('/dashboard');
       }
     }
 
     render() {
-      if (this.props.auth && this.props.auth.isAuthenticated) {
+      if (!this.props.auth || !this.props.auth.isAuthenticated) {
         return <WrappedComponent {...this.props}/>;
       }
       return null;
