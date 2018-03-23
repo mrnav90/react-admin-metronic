@@ -1,8 +1,35 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {changeLanguage, logout} from 'actions';
+import PropTypes from 'prop-types';
+import {translate} from 'utils';
+
+@connect(state => ({
+  language: state.i18n.locale,
+  auth: state.auth
+}))
 
 export default class UserProfile extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func,
+    language: PropTypes.string,
+    auth: PropTypes.object
+  }
+
   constructor(props) {
     super(props);
+    this.changeLanguage = this.changeLanguage.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  changeLanguage() {
+    const key = this.props.language === 'en' ? 'ja' : 'en';
+    this.props.dispatch(changeLanguage(key));
+  }
+
+  logout() {
+    this.props.dispatch(logout());
   }
 
   render() {
@@ -16,45 +43,40 @@ export default class UserProfile extends Component {
                 <img src="/assets/images/user.jpg" className="m--img-rounded m--marginless" alt=""/>
               </div>
               <div className="m-card-user__details">
-                <span className="m-card-user__name m--font-weight-500">
-                  Mark Andre
-                </span>
-                <a href="" className="m-card-user__email m--font-weight-300 m-link">
-                  mark.andre@gmail.com
-                </a>
+                <span className="m-card-user__name m--font-weight-500">{this.props.auth.user.name}</span>
+                <a href={`mailto:${this.props.auth.user.email}`} className="m-card-user__email m--font-weight-300 m-link">{this.props.auth.user.email}</a>
               </div>
             </div>
           </div>
           <div className="m-dropdown__body">
             <div className="m-dropdown__content">
               <ul className="m-nav m-nav--skin-light">
-                <li className="m-nav__section m--hide">
-                  <span className="m-nav__section-text">
-                    Section
-                  </span>
-                </li>
                 <li className="m-nav__item">
-                  <a href="../../../header/profile.html" className="m-nav__link">
+                  <Link to="" className="m-nav__link">
                     <i className="m-nav__link-icon flaticon-profile-1"></i>
                     <span className="m-nav__link-title">
                       <span className="m-nav__link-wrap">
-                        <span className="m-nav__link-text">
-                          My Profile
-                        </span>
-                        <span className="m-nav__link-badge">
-                          <span className="m-badge m-badge--success">
-                            2
-                          </span>
-                        </span>
+                        <span className="m-nav__link-text">{translate('profile')}</span>
                       </span>
                     </span>
-                  </a>
+                  </Link>
+                </li>
+                <li className="m-nav__item">
+                  <span className="m-nav__link cursor-pointer">
+                    <i className="m-nav__link-icon fa fa-language"></i>
+                    <span className="m-nav__link-title">
+                      <span className="m-nav__link-wrap">
+                        <span className="m-nav__link-text ng-scope" onClick={this.changeLanguage}>{translate('language')}</span>
+                      </span>
+                    </span>
+                  </span>
                 </li>
                 <li className="m-nav__separator m-nav__separator--fit"></li>
                 <li className="m-nav__item">
-                  <a href="../../../snippets/pages/user/login-1.html" className="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
-                    Logout
-                  </a>
+                  <span onClick={this.logout}
+                    className="cursor-pointer btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                    {translate('logout')}
+                  </span>
                 </li>
               </ul>
             </div>

@@ -13,6 +13,7 @@ const webpackConfig = {
   resolve: {
     extensions: ['.jsx', '.js'],
     alias: {
+      jquery: path.join(__dirname, '../node_modules/jquery/dist/jquery'),
       actions: path.resolve(__dirname, '../src/actions'),
       components: path.resolve(__dirname, '../src/components'),
       constants: path.resolve(__dirname, '../src/constants'),

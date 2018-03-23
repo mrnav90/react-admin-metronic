@@ -18,6 +18,9 @@ export default class Application extends Component {
 
   constructor(props, context) {
     super(props, context);
+  }
+
+  componentDidMount() {
     if (isAuthenticated()) {
       this.props.dispatch(getUserInfo());
     }

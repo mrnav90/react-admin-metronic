@@ -200,5 +200,7 @@
   "request": "Request",
   "blog_url": "Blog URL",
   "are_you_sure": "Are you sure?",
-  "delete_description": "Your will not be able to recover this item!"
+  "delete_description": "Your will not be able to recover this item!",
+  "logout": "Logout",
+  "profile": "My profile"
 }

@@ -200,5 +200,7 @@
   "request": "申請",
   "blog_url": "Blog URL",
   "are_you_sure": "削除してよろしいですか？",
-  "delete_description": "この操作は取り消すことができません。"
+  "delete_description": "この操作は取り消すことができません。",
+  "logout": "ログアウト",
+  "profile": "プロフィール"
 }

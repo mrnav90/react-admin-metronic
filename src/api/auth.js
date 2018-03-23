@@ -15,7 +15,7 @@ export default reduxAPI({
   logout: {
     url: 'admin/logout',
     options: {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

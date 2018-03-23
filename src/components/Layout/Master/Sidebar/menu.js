@@ -1,45 +1,37 @@
 const menu = [
   {
-    name: 'Home',
-    link: '',
-    icon: 'fa fa-cloud',
-    subMenu: []
-  },
-  {
-    name: 'About',
-    link: '',
-    icon: 'fa fa-cloud',
-    subMenu: []
-  },
-  {
-    name: 'Menu',
-    link: '',
-    icon: 'fa fa-cloud',
+    name: 'Store list',
+    translateKey: 'store_list',
+    link: '/dashboard',
+    icon: 'la la-shopping-cart',
     subMenu: [
       {
-        name: 'Home',
-        link: ''
-      },
-      {
-        name: 'About',
-        link: ''
+        name: 'User list',
+        translateKey: 'user_list',
+        link: '/dashboard2'
       }
     ]
   },
   {
-    name: 'Menu2',
-    link: '',
-    icon: 'fa fa-cloud',
-    subMenu: [
-      {
-        name: 'Home',
-        link: ''
-      },
-      {
-        name: 'About',
-        link: ''
-      }
-    ]
+    name: 'User list',
+    translateKey: 'user_list',
+    link: '/dashboard2',
+    icon: 'la la-users',
+    subMenu: []
+  },
+  {
+    name: 'Genre setting',
+    translateKey: 'genre_setting',
+    link: '/dashboard2',
+    icon: 'la la-cogs',
+    subMenu: []
+  },
+  {
+    name: 'Cast list',
+    translateKey: 'cast_list',
+    link: '/dashboard2',
+    icon: 'la la-user',
+    subMenu: []
   }
 ];
 
