@@ -8,7 +8,8 @@ import {
   RequestPasswordPage,
   ResetPasswordPage,
   PageNotFound,
-  DashboardPage
+  DashboardPage,
+  MyProfilePage
 } from 'pages';
 
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
     component: Application,
     routes: [
       {path: '/dashboard', exact: true, component: DashboardPage},
+      {path: '/my-profile', exact: true, component: MyProfilePage},
       {path: '/', exact: true, component: SignInPage},
       {path: '/sign-up', exact: true, component: SignUpPage},
       {path: '/request-password', exact: true, component: RequestPasswordPage},

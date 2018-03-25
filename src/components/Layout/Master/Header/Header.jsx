@@ -15,7 +15,7 @@ export default class Header extends Component {
               <div className="m-stack m-stack--ver m-stack--general">
                 <div className="m-stack__item m-stack__item--middle m-brand__logo">
                   <a className="m-brand__logo-wrapper">
-                    <img alt="logo" src="/assets/images/logo.png"/>
+                    <img alt="logo" src="/assets/images/kakak_logo_white.png"/>
                   </a>
                 </div>
                 <div className="m-stack__item m-stack__item--middle m-brand__tools">

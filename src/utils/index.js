@@ -1,7 +1,9 @@
+import {translate, translationWithStore} from './translation';
+
 export {
   translationWithStore,
   translate
-} from './translation';
+};
 
 export {
   setUserInfo,
@@ -15,3 +17,11 @@ export {
   setCSRFToken,
   getCSRFToken
 } from './store';
+
+export function setPageTitle(title, isTranslate = true) {
+  if (isTranslate) {
+    document.title = translate(title);
+  } else {
+    document.title = title;
+  }
+}

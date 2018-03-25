@@ -24,7 +24,8 @@ export default class NavItem extends Component {
       <li className={classnames('m-menu__item',
         {
           'm-menu__item--active': isActive && !submenu,
-          'm-menu__item--submenu m-menu__item--expanded': submenu
+          'm-menu__item--submenu m-menu__item--expanded': submenu,
+          'm-menu__item--open': isActive && submenu
         }
       )}
       aria-haspopup="true"

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {changeLanguage, logout} from 'actions';
 import PropTypes from 'prop-types';
 import {translate} from 'utils';
+import {getUserInfo} from 'utils';
 
 @connect(state => ({
   language: state.i18n.locale,
@@ -19,8 +20,17 @@ export default class UserProfile extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      user: getUserInfo()
+    };
     this.changeLanguage = this.changeLanguage.bind(this);
     this.logout = this.logout.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth && nextProps.auth.user) {
+      this.setState({user: nextProps.auth.user});
+    }
   }
 
   changeLanguage() {
@@ -43,8 +53,8 @@ export default class UserProfile extends Component {
                 <img src="/assets/images/user.jpg" className="m--img-rounded m--marginless" alt=""/>
               </div>
               <div className="m-card-user__details">
-                <span className="m-card-user__name m--font-weight-500">{this.props.auth.user.name}</span>
-                <a href={`mailto:${this.props.auth.user.email}`} className="m-card-user__email m--font-weight-300 m-link">{this.props.auth.user.email}</a>
+                <span className="m-card-user__name m--font-weight-500">{this.state.user.name}</span>
+                <a href={`mailto:${this.state.user.email}`} className="m-card-user__email m--font-weight-300 m-link">{this.state.user.email}</a>
               </div>
             </div>
           </div>
@@ -52,7 +62,7 @@ export default class UserProfile extends Component {
             <div className="m-dropdown__content">
               <ul className="m-nav m-nav--skin-light">
                 <li className="m-nav__item">
-                  <Link to="" className="m-nav__link">
+                  <Link to="/my-profile" className="m-nav__link">
                     <i className="m-nav__link-icon flaticon-profile-1"></i>
                     <span className="m-nav__link-title">
                       <span className="m-nav__link-wrap">

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {translate} from 'utils';
 import NavItem from 'components/NavItem';
-import menu from './menu';
+import menu from 'constants/menu';
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -21,29 +21,31 @@ export default class Sidebar extends Component {
             {
               menu.map((item, idx) => {
                 return (
-                  <NavItem key={idx} active={item.link} submenu={item.subMenu.length > 0}>
-                    <Link to={item.link} className={`m-menu__link ${item.subMenu.length > 0 ? 'm-menu__toggle' : ''}`}>
-                      <i className={`m-menu__link-icon ${item.icon}`}></i>
-                      {
-                        item.subMenu.length > 0 ? (
-                          <span>
-                            <span className="m-menu__link-text">{translate(item.translateKey)}</span>
-                            <i className="m-menu__ver-arrow la la-angle-right"></i>
-                          </span>
-                        ) : (
-                          <span className="m-menu__link-title">
-                            <span className="m-menu__link-wrap">
-                              <span className="m-menu__link-text">{translate(item.translateKey)}</span>
-                            </span>
-                          </span>
-                        )
-                      }
-                    </Link>
+                  <NavItem key={idx} active={item.link} submenu={item.subMenu && item.subMenu.length > 0}>
                     {
-                      item.subMenu.length > 0 ? (
+                      item.subMenu && item.subMenu.length > 0 ? (
+                        <Link to={item.link} className="m-menu__link m-menu__toggle">
+                          <i className={`m-menu__link-icon ${item.icon}`}></i>
+                          <span className="m-menu__link-text">{translate(item.translateKey)}</span>
+                          <i className="m-menu__ver-arrow la la-angle-right"></i>
+                        </Link>
+                      ) : (
+                        <Link to={item.link} className="m-menu__link">
+                          <i className={`m-menu__link-icon ${item.icon}`}></i>
+                          <span className="m-menu__link-text">{translate(item.translateKey)}</span>
+                        </Link>
+                      )
+                    }
+                    {
+                      item.subMenu && item.subMenu.length > 0 ? (
                         <div className="m-menu__submenu">
                           <span className="m-menu__arrow"></span>
                           <ul className="m-menu__subnav">
+                            <li className="m-menu__item  m-menu__item--parent" aria-haspopup="true">
+                              <span className="m-menu__link">
+                                <span className="m-menu__link-text">{translate(item.translateKey)}</span>
+                              </span>
+                            </li>
                             {
                               item.subMenu.map((subItem, index) => {
                                 return (

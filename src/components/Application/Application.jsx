@@ -6,6 +6,7 @@ import {isAuthenticated} from 'utils';
 import {getUserInfo} from 'actions';
 
 @connect()
+
 export default class Application extends Component {
   static contextTypes = {
     router: PropTypes.object
@@ -13,6 +14,7 @@ export default class Application extends Component {
 
   static propTypes = {
     route: PropTypes.object,
+    history: PropTypes.object,
     dispatch: PropTypes.func
   };
 
