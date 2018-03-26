@@ -49,7 +49,7 @@ export default class RequestPasswordForm extends Component {
           <h3 className="m-login__title">{translate('forgot_password')}</h3>
           <div className="m-login__desc">{translate('forgot_password_description')}</div>
         </div>
-        <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit}>
+        <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit} noValidate>
           <Input
             className="form-control m-input"
             type="text"
@@ -59,6 +59,7 @@ export default class RequestPasswordForm extends Component {
             validationErrors={{isEmail: translate('email_valid')}}
             errors={this.state.errors}
             required
+            messageRequired={translate('email_blank')}
           />
           <div className="m-login__form-action">
             <Button

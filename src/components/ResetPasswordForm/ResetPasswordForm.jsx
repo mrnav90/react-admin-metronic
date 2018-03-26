@@ -5,11 +5,15 @@ import {ForgotPassword} from 'api';
 import {toastr} from 'react-redux-toastr';
 import {translate} from 'utils';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router';
 
+@withRouter
 export default class ResetPasswordForm extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
-    language: PropTypes.string
+    language: PropTypes.string,
+    params: PropTypes.object,
+    history: PropTypes.object
   }
 
   constructor(props, context) {
@@ -37,6 +41,7 @@ export default class ResetPasswordForm extends Component {
     ForgotPassword.actions.resetPassword.request({}, {data}).then(response => {
       this.setState({isSubmit: false});
       toastr.success(translate('reset_your_password'), response.message);
+      this.props.history.push('/');
     }).catch(error => {
       this.setState({isSubmit: false, errors: error.errors});
       toastr.error(translate('error'), error.message);
@@ -49,7 +54,7 @@ export default class ResetPasswordForm extends Component {
         <div className="m-login__head">
           <h3 className="m-login__title">{translate('reset_your_password')}</h3>
         </div>
-        <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit}>
+        <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit} noValidate>
           <Input
             className="form-control m-input"
             type="text"
@@ -59,6 +64,7 @@ export default class ResetPasswordForm extends Component {
             validationErrors={{isEmail: translate('email_valid')}}
             errors={this.state.errors}
             required
+            messageRequired={translate('email_blank')}
           />
           <Input
             className="form-control m-input m-login__form-input--last"
@@ -68,6 +74,7 @@ export default class ResetPasswordForm extends Component {
             validations="minLength:6"
             validationErrors={{minLength: translate('password_short')}}
             required
+            messageRequired={translate('password_blank')}
           />
           <Input
             className="form-control m-input m-login__form-input--last"
@@ -77,6 +84,7 @@ export default class ResetPasswordForm extends Component {
             validations={{minLength: 6, equalsField: 'password'}}
             validationErrors={{minLength: translate('password_short'), equalsField: translate('password_confirmation_match')}}
             required
+            messageRequired={translate('password_confirmation_blank')}
           />
           <div className="m-login__form-action">
             <Button
