@@ -59,27 +59,36 @@ export default class SignInForm extends Component {
   render() {
     return (
       <div className="m-login__container">
+        <div className="m-login__logo sod-logo">
+          <a ui-sref="signIn">
+            <img alt="SOD" src="/assets/icons/kakak_logo.svg"/>
+          </a>
+        </div>
         <div className="m-login__head">
           <h3 className="m-login__title">{translate('admin_login')}</h3>
         </div>
-        <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit}>
+        <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit} noValidate>
           <Input
             className="form-control m-input"
             type="text"
             name="email"
+            disabled={this.state.isSubmit}
             placeholder={translate('email')}
             validations="isEmail"
             validationErrors={{isEmail: translate('email_valid')}}
             required
+            messageRequired={translate('email_blank')}
           />
           <Input
             className="form-control m-input m-login__form-input--last"
             type="password"
             name="password"
+            disabled={this.state.isSubmit}
             placeholder={translate('password')}
             validations="minLength:6"
             validationErrors={{minLength: translate('password_short')}}
             required
+            messageRequired={translate('password_blank')}
           />
           <div className="row m-login__form-sub">
             <div className="col m--align-left m-login__form-left">

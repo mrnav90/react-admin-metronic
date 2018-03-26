@@ -525,9 +525,7 @@ var mApp = function() {
 }();
 
 //== Initialize mApp class on document ready
-$(document).ready(function() {
-    mApp.init();
-});
+
 /**
  * @class mUtil  Metronic base utilize class that privides helper functions
  */
@@ -873,9 +871,7 @@ var mUtil = function() {
 }();
 
 //== Initialize mUtil class on document ready
-$(document).ready(function() {
-    mUtil.init();
-});
+
 (function($) {
 
   if (typeof mUtil === 'undefined') throw new Error(
@@ -7962,13 +7958,6 @@ var mLayout = function() {
     };
 }();
 
-$(document).ready(function() {
-    if (mUtil.isAngularVersion() === false) {
-        mLayout.init();
-    }
-});
-
-
 var mQuickSidebar = function() {
     var topbarAside = $('#m_quick_sidebar');
     var topbarAsideTabs = $('#m_quick_sidebar_tabs');
@@ -8066,5 +8055,10 @@ var mQuickSidebar = function() {
 }();
 
 $(document).ready(function() {
+  setTimeout(function() {
+    mApp.init();
+    mLayout.init();
+    mUtil.init();
     mQuickSidebar.init();
+  }, 1000);
 });

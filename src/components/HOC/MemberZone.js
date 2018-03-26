@@ -34,7 +34,7 @@ export default function(WrappedComponent) {
     }
 
     render() {
-      if (this.props.auth && this.props.auth.isAuthenticated) {
+      if (isAuthenticated()) {
         return <WrappedComponent {...this.props}/>;
       }
       return null;

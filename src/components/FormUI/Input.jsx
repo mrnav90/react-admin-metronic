@@ -17,7 +17,12 @@ export default class Input extends Component {
     getValue: PropTypes.func,
     onChange: PropTypes.func,
     showError: PropTypes.func,
-    errors: PropTypes.object
+    errors: PropTypes.object,
+    required: PropTypes.bool,
+    isPristine: PropTypes.func,
+    isValid: PropTypes.func,
+    showRequired: PropTypes.func,
+    messageRequired: PropTypes.string
   };
 
   static defaultProps = {
@@ -59,8 +64,9 @@ export default class Input extends Component {
   }
 
   render() {
+    const isRequired = !this.props.isPristine() && !this.props.isValid() && this.props.showRequired();
     return (
-      <div className={classnames('form-group m-form__group', {'has-danger': this.props.showError() || this.state.errors.length > 0})}>
+      <div className={classnames('form-group m-form__group', {'has-danger': this.props.showError() || this.state.errors.length > 0 || isRequired})}>
         <input
           type={this.props.type}
           className={this.props.className}
@@ -70,6 +76,7 @@ export default class Input extends Component {
           onChange={this.onChange}
           disabled={this.props.disabled}
           value={this.props.getValue() || ''}
+          required={this.props.required}
         />
         <ShowIf condition={this.state.errors.length > 0}>
           {
@@ -80,6 +87,7 @@ export default class Input extends Component {
             })
           }
         </ShowIf>
+        {isRequired && <span className="form-control-feedback">{this.props.messageRequired}</span>}
         {this.props.getErrorMessage() && <span className="form-control-feedback">{this.props.getErrorMessage()}</span>}
       </div>
     );

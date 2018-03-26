@@ -62,9 +62,10 @@ const webpackConfig = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
+      '$': 'jquery',
+      'jQuery': 'jquery',
       'window.jQuery': 'jquery',
+      'window.$': 'jquery',
       'Popper': 'popper.js'
     }),
     new webpack.NamedModulesPlugin(),

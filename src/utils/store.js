@@ -35,7 +35,7 @@ export function getCSRFToken() {
 }
 
 export function isAuthenticated() {
-  return typeof cookie.get('token') !== 'undefined';
+  return cookie.get('userInfo') && cookie.get('token');
 }
 
 export function revokeUser() {

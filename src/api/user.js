@@ -3,7 +3,7 @@ import axiosRequest from './axios';
 
 export default reduxAPI({
   profile: {
-    url: 'admin/calling-users/profile',
+    url: 'admins/profile',
     options: {
       method: 'GET',
       headers: {

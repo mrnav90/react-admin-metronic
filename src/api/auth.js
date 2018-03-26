@@ -3,7 +3,7 @@ import axiosRequest from './axios';
 
 export default reduxAPI({
   login: {
-    url: 'admin/login',
+    url: 'login',
     options: {
       method: 'POST',
       headers: {
@@ -13,9 +13,9 @@ export default reduxAPI({
     }
   },
   logout: {
-    url: 'admin/logout',
+    url: 'logout',
     options: {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
