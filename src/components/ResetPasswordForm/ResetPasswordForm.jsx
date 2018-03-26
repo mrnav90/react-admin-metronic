@@ -32,6 +32,7 @@ export default class ResetPasswordForm extends Component {
   }
 
   onValidSubmit(data) {
+    data.token = this.props.params.token;
     this.setState({isSubmit: true});
     ForgotPassword.actions.resetPassword.request({}, {data}).then(response => {
       this.setState({isSubmit: false});
@@ -50,6 +51,16 @@ export default class ResetPasswordForm extends Component {
         </div>
         <Form className="m-login__form m-form" onInvalid={this.onInvalid} onValid={this.onValid} onValidSubmit={this.onValidSubmit}>
           <Input
+            className="form-control m-input"
+            type="text"
+            name="email"
+            placeholder={translate('email')}
+            validations="isEmail"
+            validationErrors={{isEmail: translate('email_valid')}}
+            errors={this.state.errors}
+            required
+          />
+          <Input
             className="form-control m-input m-login__form-input--last"
             type="password"
             name="password"
@@ -61,7 +72,7 @@ export default class ResetPasswordForm extends Component {
           <Input
             className="form-control m-input m-login__form-input--last"
             type="password"
-            name="confirmation_password"
+            name="password_confirmation"
             placeholder={translate('confirmation_password')}
             validations={{minLength: 6, equalsField: 'password'}}
             validationErrors={{minLength: translate('password_short'), equalsField: translate('password_confirmation_match')}}
