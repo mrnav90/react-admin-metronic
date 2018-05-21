@@ -98,7 +98,7 @@
   "language": "日本語",
   "displaying": "Displaying",
   "please_wait": "Please wait...",
-  "pagination_info": "Displaying {{from}} - {{to}} of {{total}} records",
+  "pagination_info": "Displaying %{from} - %{to} of %{total} records",
   "data_not_found": "Data not found",
   "store_name_blank": "Store name can not be blank!",
   "postal_code_valid": "Postal code must be numeric or - characters only!",

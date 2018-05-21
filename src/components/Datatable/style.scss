@@ -1,0 +1,38 @@
+.m-datatable {
+  position: relative;
+
+  &__table {
+    overflow-x: auto !important;
+  }
+
+  &__number {
+    width: 40px;
+  }
+
+  &__actions {
+    width: 110px;
+  }
+
+  &__body {
+    &__cell {
+      word-break: break-all;
+    }
+  }
+
+  &__loading-table {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

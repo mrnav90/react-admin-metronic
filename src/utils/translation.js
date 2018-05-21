@@ -12,6 +12,6 @@ export function translationWithStore(store) {
   store.dispatch(preferredLanguage());
 }
 
-export function translate(key) {
-  return I18n.t(key);
+export function translate(key, data) {
+  return I18n.t(key, data);
 }

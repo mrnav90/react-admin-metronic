@@ -1,9 +1,12 @@
 import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
+import 'bootstrap-select/dist/css/bootstrap-select.css';
+import 'react-select/dist/react-select.css';
 import 'theme/main.scss';
 import 'styles/main.scss';
 
-import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap';
+import 'bootstrap-select';
 import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js';
 import 'theme/scripts.bundle.js';
 

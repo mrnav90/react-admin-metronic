@@ -98,7 +98,7 @@
   "language": "English",
   "displaying": "表示中",
   "please_wait": "少々お待ちください。",
-  "pagination_info": "{{total}}件中、{{from}}〜{{to}}件までを表示しています。",
+  "pagination_info": "%{total}件中、%{from}〜%{to}件までを表示しています。",
   "data_not_found": "該当するデータは存在しません。",
   "store_name_blank": "店舗は空白にしないでください。",
   "postal_code_valid": "郵便番号は数字にしてください。",

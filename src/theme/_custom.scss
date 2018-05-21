@@ -9,3 +9,13 @@
 .m-topbar__notifications.m-dropdown.m-dropdown--align-center.m-dropdown--large .m-dropdown__wrapper {
   margin-left: -350px;
 }
+
+.m-datatable__pager-link--disabled a,
+.m-datatable > .m-datatable__pager > .m-datatable__pager-nav > li > .m-datatable__pager-link.m-datatable__pager-link--first:hover,
+.m-datatable > .m-datatable__pager > .m-datatable__pager-nav > li > .m-datatable__pager-link.m-datatable__pager-link--prev:hover,
+.m-datatable > .m-datatable__pager > .m-datatable__pager-nav > li > .m-datatable__pager-link.m-datatable__pager-link--next:hover,
+.m-datatable > .m-datatable__pager > .m-datatable__pager-nav > li > .m-datatable__pager-link.m-datatable__pager-link--last:hover {
+  color: #898b96;
+  background: #ebe9f2;
+  opacity: .3;
+}

@@ -66,7 +66,7 @@ const webpackConfig = {
       'jQuery': 'jquery',
       'window.jQuery': 'jquery',
       'window.$': 'jquery',
-      'Popper': 'popper.js'
+      Popper: ['popper.js', 'default']
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),

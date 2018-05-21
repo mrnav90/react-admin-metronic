@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {translate} from 'utils';
 import NavItem from 'components/NavItem';
 import menu from 'constants/menu';
+import classnames from 'classnames';
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -22,20 +23,11 @@ export default class Sidebar extends Component {
               menu.map((item, idx) => {
                 return (
                   <NavItem key={idx} active={item.link} submenu={item.subMenu && item.subMenu.length > 0}>
-                    {
-                      item.subMenu && item.subMenu.length > 0 ? (
-                        <Link to={item.link} className="m-menu__link m-menu__toggle">
-                          <i className={`m-menu__link-icon ${item.icon}`}></i>
-                          <span className="m-menu__link-text">{translate(item.translateKey)}</span>
-                          <i className="m-menu__ver-arrow la la-angle-right"></i>
-                        </Link>
-                      ) : (
-                        <Link to={item.link} className="m-menu__link">
-                          <i className={`m-menu__link-icon ${item.icon}`}></i>
-                          <span className="m-menu__link-text">{translate(item.translateKey)}</span>
-                        </Link>
-                      )
-                    }
+                    <Link to={item.link} className={classnames('m-menu__link', {'m-menu__toggle': item.subMenu && item.subMenu.length > 0})}>
+                      <i className={`m-menu__link-icon ${item.icon}`}></i>
+                      <span className="m-menu__link-text">{translate(item.translateKey)}</span>
+                      {item.subMenu && item.subMenu.length > 0 && <i className="m-menu__ver-arrow la la-angle-right"></i>}
+                    </Link>
                     {
                       item.subMenu && item.subMenu.length > 0 ? (
                         <div className="m-menu__submenu">

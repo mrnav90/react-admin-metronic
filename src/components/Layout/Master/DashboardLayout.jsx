@@ -30,7 +30,7 @@ export default class DashboardLayout extends Component {
             <i className="la la-close"></i>
           </button>
           <Sidebar/>
-          <div className="m-grid__item m-grid__item--fluid m-wrapper">{childrenWithProps}</div>
+          {childrenWithProps}
         </div>
       </MasterLayout>
     );
